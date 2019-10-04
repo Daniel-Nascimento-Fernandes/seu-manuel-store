@@ -1,6 +1,7 @@
 package com.seumanuel.store.controller;
 
 import com.seumanuel.store.model.Product;
+import com.seumanuel.store.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -41,8 +42,8 @@ public class ProductController {
         return service.findByName(name);
     }
 
-    GetMapping
-    public List<Product> findByPrice(@RequestParam Integer min, @RequestParam Integer max){
+    @GetMapping
+    public List<Product> findByPrice(@RequestParam BigDecimal min, @RequestParam BigDecimal max){
         return service.findByPrice(min,max);
     }
 

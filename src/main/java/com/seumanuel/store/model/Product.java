@@ -3,6 +3,7 @@ package com.seumanuel.store.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 
 @Document

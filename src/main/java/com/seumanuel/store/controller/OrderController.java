@@ -1,6 +1,8 @@
 package com.seumanuel.store.controller;
 
 
+import com.seumanuel.store.model.Order;
+import com.seumanuel.store.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,17 +23,17 @@ public class OrderController {
     }
 
     @PutMapping("/{id}")
-    public Product cancelOrder(@PathVariable String id, @RequestBody Order order){
+    public Order cancelOrder(@PathVariable String id, @RequestBody Order order){
         return service.cancelOrder(order);
     }
 
     @PutMapping("/{id}")
-    public Product deliverOrder(@PathVariable String id, @RequestBody Order order){
+    public Order deliverOrder(@PathVariable String id, @RequestBody Order order){
         return service.deliverOrder(order);
     }
 
     @PutMapping("/{id}")
-    public Product approveOrder(@PathVariable String id, @RequestBody Order order){
+    public Order approveOrder(@PathVariable String id, @RequestBody Order order){
         return service.approveOrder(order);
     }
 
