@@ -23,18 +23,18 @@ public class OrderController {
     }
 
     @PutMapping("cancelOrder/{id}")
-    public Order cancelOrder(@PathVariable String id, @RequestBody Order order){
-        return service.cancelOrder(order);
+    public Order cancelOrder(@PathVariable String id){
+        return service.cancelOrder(id);
     }
 
     @PutMapping("deliverOrder/{id}")
-    public Order deliverOrder(@PathVariable String id, @RequestBody Order order){
-        return service.deliverOrder(order);
+    public Order deliverOrder(@PathVariable String id){
+        return service.deliverOrder(id);
     }
 
     @PutMapping("approveOrder/{id}")
-    public Order approveOrder(@PathVariable String id, @RequestBody Order order){
-        return service.approveOrder(order);
+    public Order approveOrder(@PathVariable String id){
+        return service.approveOrder(id);
     }
 
 }
