@@ -1,4 +1,5 @@
 package com.seumanuel.store.dto;
 
-public class OrderDTO {
+public class ErrorDTO {
+    
 }
