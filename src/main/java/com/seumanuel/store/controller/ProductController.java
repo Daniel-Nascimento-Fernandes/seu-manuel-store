@@ -23,8 +23,8 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public Product update(@PathVariable String id, @RequestBody Product product){
-        return service.save(product);
+    public Product update(@PathVariable String id, @RequestParam BigDecimal stock){
+        return service.save(id,stock);
     }
 
     @DeleteMapping("/{id}")
