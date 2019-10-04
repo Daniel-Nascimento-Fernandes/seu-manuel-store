@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -21,6 +22,21 @@ public class ProductService {
     }
 
     public Product save(Product product) {
+        return repository.save(product);
+    }
+
+    public Product update(String id, BigDecimal stock) {
+
+        // get objeto
+        Optional opt = repository.findById(id);
+        if(!opt.isPresent())
+            throw new RuntimeException("No order found");
+
+        Product product = (Product) opt.get();
+
+        // alterar estado
+        product.setStock(stock);
+
         return repository.save(product);
     }
 
