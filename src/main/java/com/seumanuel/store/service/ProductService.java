@@ -2,10 +2,12 @@ package com.seumanuel.store.service;
 
 import com.seumanuel.store.model.Product;
 import com.seumanuel.store.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Service
 public class ProductService {
 
     private final ProductRepository repository;

@@ -3,7 +3,9 @@ package com.seumanuel.store.service;
 import com.seumanuel.store.model.Order;
 import com.seumanuel.store.model.OrderStatus;
 import com.seumanuel.store.repository.OrderRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OrderService {
 
     private final OrderRepository repository;
