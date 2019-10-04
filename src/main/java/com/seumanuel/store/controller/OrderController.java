@@ -22,17 +22,17 @@ public class OrderController {
         return service.newOrder(order);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("cancelOrder/{id}")
     public Order cancelOrder(@PathVariable String id, @RequestBody Order order){
         return service.cancelOrder(order);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("deliverOrder/{id}")
     public Order deliverOrder(@PathVariable String id, @RequestBody Order order){
         return service.deliverOrder(order);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("approveOrder/{id}")
     public Order approveOrder(@PathVariable String id, @RequestBody Order order){
         return service.approveOrder(order);
     }

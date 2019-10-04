@@ -37,12 +37,12 @@ public class ProductController {
             return service.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/findByName")
     public List<Product> findByName(@RequestParam String name){
         return service.findByName(name);
     }
 
-    @GetMapping
+    @GetMapping("/findByPrice")
     public List<Product> findByPrice(@RequestParam BigDecimal min, @RequestParam BigDecimal max){
         return service.findByPrice(min,max);
     }
