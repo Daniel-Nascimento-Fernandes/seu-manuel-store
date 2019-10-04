@@ -1,4 +1,4 @@
-package com.seumanuel.store;
+package com.seumanuel.store.helper;
 
 import com.seumanuel.store.model.Product;
 import org.mockito.stubbing.Answer;
