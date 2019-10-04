@@ -13,10 +13,9 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.Optional;
+import java.util.*;
 
-import static com.seumanuel.store.helper.ProductHelper.defaultProductAnswer;
-import static com.seumanuel.store.helper.ProductHelper.newProduct;
+import static com.seumanuel.store.helper.ProductHelper.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willDoNothing;
@@ -119,27 +118,45 @@ public class ProductServiceTest {
         Assert.assertEquals("4321", argument.getValue());
     }
 
-//    @Test
-//    public void testComputerFindAllSuccess() {
-//        //setup
-//        given(repository.findAll()).willReturn(newComputerList(2, 11));
-//
-//        //exec
-//        List<Computer> ret = service.findAll();
-//
-//        //assert
-//        Assert.assertEquals(11, ret.size());
-//
-//        int index = 1;
-//        for (Computer currentComputer : ret) {
-//            Assert.assertEquals("processor" + index++, currentComputer.getProcessor());
-//            Assert.assertTrue(currentComputer.getHd() >= 0);
-//            Assert.assertTrue(currentComputer.getHd() < 100);
-//            Assert.assertTrue(currentComputer.getRam() >= 0);
-//            Assert.assertTrue(currentComputer.getRam() < 100);
-//        }
-//
-//
-//    }
+
+    @Test
+    public void testProductFindByNameReturningObject() {
+        //setup
+        given(repository.findByNameContaining("batata")).willReturn(newProductListName(3, "batata"));
+
+        //exec
+        List<Product> ret = service.findByName("batata");
+
+        //assert
+        verify(repository, atLeastOnce()).findByNameContaining("batata");
+        Assert.assertNotNull(ret);
+        Assert.assertEquals(3,ret.size());
+        for (Product p:ret
+             ) {
+            Assert.assertEquals("batata",p.getName());
+        }
+        // more asserts to be done?
+    }
+
+
+    @Test
+    public void testProductFindByPriceReturningObject() {
+        //setup
+        given(repository.findByPriceBetween(BigDecimal.valueOf(4),BigDecimal.valueOf(12))).willReturn(newProductListPrice(3, 4,12));
+
+        //exec
+        List<Product> ret = service.findByPrice(BigDecimal.valueOf(4),BigDecimal.valueOf(12));
+
+        //assert
+        verify(repository, atLeastOnce()).findByPriceBetween(BigDecimal.valueOf(4),BigDecimal.valueOf(12));
+        Assert.assertNotNull(ret);
+        Assert.assertEquals(3,ret.size());
+        for (Product p:ret
+        ) {
+            Assert.assertTrue(p.getPrice().intValue()>=4);
+            Assert.assertTrue(p.getPrice().intValue()<=12);
+        }
+        // more asserts to be done?
+    }
 
 }
