@@ -24,7 +24,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public Product update(@PathVariable String id, @RequestParam BigDecimal stock){
-        return service.save(id,stock);
+        return service.update(id,stock);
     }
 
     @DeleteMapping("/{id}")
