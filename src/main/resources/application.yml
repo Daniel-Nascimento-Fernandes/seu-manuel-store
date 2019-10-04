@@ -1,1 +1,8 @@
+spring:
+  data:
+    mongodb:
+      database: academy
+      port: 27016
+      host: localhost
+
 
