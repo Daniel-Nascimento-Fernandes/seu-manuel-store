@@ -24,6 +24,13 @@ public final class ProductHelper {
         return ret;
     }
 
+    public static Product newProduct(String id, BigDecimal stock) {
+        Product ret = new Product();
+        ret.setId(id);
+        ret.setStock(stock);
+        return ret;
+    }
+
     public static Answer<Product> defaultProductAnswer(final String id) {
         return (Answer<Product>) invocationOnMock -> {
             Product arg = invocationOnMock.getArgument(0);
@@ -32,6 +39,17 @@ public final class ProductHelper {
                     arg.getPrice(),
                     arg.getStock());
             ret.setId(id);
+            return ret;
+        };
+    }
+
+
+    public static Answer<Product> defaultProductAnswer(final String id, final BigDecimal stock) {
+        return (Answer<Product>) invocationOnMock -> {
+            Product arg = invocationOnMock.getArgument(0);
+            Product ret = newProduct(id,stock);
+            ret.setId(id);
+            ret.setStock(stock);
             return ret;
         };
     }
