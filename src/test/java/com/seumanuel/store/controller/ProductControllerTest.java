@@ -75,7 +75,7 @@ public class ProductControllerTest {
     @Test
     public void testSaveWithSuccess() throws Exception {
         //setup
-        Product ProductToSave = newProduct("1235","Bleach", "Best Drink",
+        Product ProductToSave = newProduct("1235","Bleach", "Dont Drink",
                 new BigDecimal(92), new BigDecimal(22));
 
         given(service.save(any(Product.class))).willAnswer(defaultProductAnswer("1235"));
@@ -95,7 +95,7 @@ public class ProductControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is("1235")))
                 .andExpect(jsonPath("$.name", is("Bleach")))
-                .andExpect(jsonPath("$.description", is("Best Drink")))
+                .andExpect(jsonPath("$.description", is("Dont Drink")))
                 .andExpect(jsonPath("$.price", is(92)))
                 .andExpect(jsonPath("$.stock", is(22)))
 
