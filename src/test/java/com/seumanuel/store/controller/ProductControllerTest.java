@@ -111,7 +111,7 @@ public class ProductControllerTest {
 
         Assert.assertNotNull(ret.getId());
         Assert.assertEquals("Bleach", ret.getName());
-        Assert.assertEquals("Best Drink", ret.getDescription());
+        Assert.assertEquals("Dont Drink", ret.getDescription());
         Assert.assertEquals(new BigDecimal(92), ret.getPrice());
         Assert.assertEquals(new BigDecimal(22), ret.getStock());
 
